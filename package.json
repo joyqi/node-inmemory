@@ -1,5 +1,5 @@
 {
-  "name": "node-inmemory",
+  "name": "inmemory",
   "keywords": [],
   "author": "joyqi",
   "license": "",
@@ -34,11 +34,16 @@
     "test": "npx mocha"
   },
   "devDependencies": {
+    "@types/assert": "^1.5.6",
     "@types/mocha": "latest",
     "assert": "latest",
     "mocha": "latest",
     "ts-node": "latest",
     "tsc-esm-fix": "latest",
     "typescript": "latest"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=6.0.0"
   }
 }
