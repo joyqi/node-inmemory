@@ -1,20 +1,18 @@
 {
-  "name": "typescript-module-template",
+  "name": "node-inmemory",
   "keywords": [],
-  "author": "",
+  "author": "joyqi",
   "license": "",
-  "description": "",
+  "description": "A simple in-memory cache system for node.js.",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/joyqi/node-inmemory.git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/joyqi/node-inmemory#readme",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/joyqi/node-inmemory/issues"
   },
-
   "version": "latest",
-
   "exports": {
     ".": {
       "types": "./lib/types/index.d.ts",
