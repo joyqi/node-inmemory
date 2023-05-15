@@ -17,7 +17,7 @@ function setValue(key: object, value: any, ttl = 0) {
 // Generate a getter and a resetter for a function.
 // The getter will cache the result of the function.
 // The resetter will clear the cache.
-export function inMemory<T extends any, ReturnValue extends T | Promise<T>>(fn: () => ReturnValue, ttl = 0): [() => ReturnValue, () => void] {
+export function inMemory<T extends any, ReturnValue extends T | Promise<T>>(fn: () => ReturnValue, ttl = 0): [() => ReturnValue, (value?: any) => void] {
     const getter = () => {
         const item = storage.get(fn);
         if (item && (item.expires === 0 || item.expires > Date.now())) {
@@ -37,9 +37,13 @@ export function inMemory<T extends any, ReturnValue extends T | Promise<T>>(fn: 
         }
     };
 
-    const resetter = () => {
-        storage.delete(fn);
+    const setter = (value?: any) => {
+        if (typeof value !== 'undefined') {
+            setValue(fn, value, ttl);
+        } else {
+            storage.delete(fn);
+        }
     };
 
-    return [getter, resetter];
+    return [getter, setter];
 }
